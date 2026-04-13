@@ -23,7 +23,7 @@ stages:
               targetPath: '$(Pipeline.Workspace)'
               artifact: 'drop'
               publishLocation: 'pipeline'
-  - stage: 
+  - stage: CD
     jobs:
       - job: 
         steps:
