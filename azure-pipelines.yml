@@ -1,9 +1,9 @@
 trigger: none
 
-pool:
+pool: Himalay
 
 stages:
-  - stage: 
+  - stage: CI
     jobs:
       - job: 
         steps:
