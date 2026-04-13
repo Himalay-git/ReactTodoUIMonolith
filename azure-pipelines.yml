@@ -1,8 +1,27 @@
-trigger: none 
-pool: Default
+trigger: none
 
-steps: 
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: 'Write-Host "Hello World"'
+pool:
+
+stages:
+  - stage: 
+    jobs:
+      - job: 
+        steps:
+          - task: NodeTaskRunnerInstaller@0
+            inputs:
+              nodeVersion: '16'
+
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'sudo npm install'
+          - task: Bash@3
+            inputs:
+              targetType: 'inline'
+              script: 'sudo npm run build'
+
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: '$(Pipeline.Workspace)'
+              publishLocation: 'pipeline'
+
