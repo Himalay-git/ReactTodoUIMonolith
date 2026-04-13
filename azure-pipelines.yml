@@ -18,9 +18,8 @@ stages:
             inputs:
               targetType: 'inline'
               script: 'npm run build'
-
           - task: PublishPipelineArtifact@1
             inputs:
-              targetPath: '$(Build.ArtifactStagingDirectory)/build'
+              targetPath: '$(Pipeline.Workspace)'
               publishLocation: 'pipeline'
 
