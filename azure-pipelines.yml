@@ -32,5 +32,20 @@ stages:
               buildType: 'current'
               artifactName: 'drop'
               targetPath: '$(System.DefaultWorkingDirectory)/build'
+          - task: CopyFilesOverSSH@0
+            inputs:
+              sshEndpoint: 'ssh'
+              sourceFolder: '$(System.DefaultWorkingDirectory)/build'
+              contents: '**'
+              targetFolder: '/home/username/artifact'
+              readyTimeout: '20000'
+          - task: SSH@0
+            inputs:
+              sshEndpoint: 'ssh'
+              runOptions: 'commands'
+              commands: 'sudo apt install nginx'
+              readyTimeout: '20000'
+
+          
           
   
