@@ -20,7 +20,7 @@ stages:
               script: 'npm run build'
           - task: PublishPipelineArtifact@1
             inputs:
-              targetPath: '$(Pipeline.Workspace)'
+              targetPath: '$(System.DefaultWorkingDirectory)/build'
               artifact: 'drop'
               publishLocation: 'pipeline'
   - stage: CD
@@ -31,6 +31,6 @@ stages:
             inputs:
               buildType: 'current'
               artifactName: 'drop'
-              targetPath: '$(Pipeline.Workspace)'
+              targetPath: '$(System.DefaultWorkingDirectory)/build'
           
   
