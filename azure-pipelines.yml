@@ -21,6 +21,6 @@ stages:
 
           - task: PublishPipelineArtifact@1
             inputs:
-              targetPath: '$(Pipeline.Workspace)'
+              targetPath: '$(Build.ArtifactStagingDirectory)/build'
               publishLocation: 'pipeline'
 
