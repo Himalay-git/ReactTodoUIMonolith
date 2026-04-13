@@ -10,15 +10,14 @@ stages:
           - task: NodeTaskRunnerInstaller@0
             inputs:
               nodeVersion: '16'
-
-          - task: Bash@3
+          - task: PowerShell@2
             inputs:
               targetType: 'inline'
-              script: 'sudo npm install'
-          - task: Bash@3
+              script: 'npm install'
+          - task: PowerShell@2
             inputs:
               targetType: 'inline'
-              script: 'sudo npm run build'
+              script: 'npn run build'
 
           - task: PublishPipelineArtifact@1
             inputs:
