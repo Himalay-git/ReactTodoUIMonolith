@@ -43,7 +43,13 @@ stages:
             inputs:
               sshEndpoint: 'ssh'
               runOptions: 'commands'
-              commands: 'sudo apt update && sudo apt install -y nginx'
+              commands: 'sudo apt update'
+              readyTimeout: '20000'
+          - task: SSH@0
+            inputs:
+              sshEndpoint: 'ssh'
+              runOptions: 'commands'
+              commands: 'sudo apt install -y nginx'
               readyTimeout: '20000'
 
           
